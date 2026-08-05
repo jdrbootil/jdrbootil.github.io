@@ -39,9 +39,10 @@
     .card-title { font-size: 1.1rem; font-weight: bold; color: #2c3e50; margin: 0; }
     .description { font-size: 0.9rem; color: #555; margin-bottom: 15px; }
     
-    .actions { padding: 0 20px 20px 20px; display: flex; }
-    .btn { text-decoration: none; text-align: center; padding: 10px 12px; border-radius: 5px; font-size: 0.9rem; font-weight: bold; width: 100%; border: none; cursor: pointer; display: block; box-sizing: border-box; }
+    .actions { padding: 0 20px 20px 20px; display: flex; gap: 10px; }
+    .btn { text-decoration: none; text-align: center; padding: 10px 12px; border-radius: 5px; font-size: 0.85rem; font-weight: bold; flex: 1; border: none; cursor: pointer; display: block; box-sizing: border-box; }
     .btn-primary { background: #3498db; color: white; }
+    .btn-secondary { background: #27ae60; color: white; }
     .btn:hover { opacity: 0.9; }
 
     /* Bottom Profile Bubble Section */
@@ -90,6 +91,12 @@
     /* Code Viewer Container */
     .viewer-container { border: 1px solid #333; border-radius: 5px; overflow-x: auto; background: #1e1e1e; padding: 15px; }
     pre { margin: 0; color: #d4d4d4; font-family: 'Consolas', 'Courier New', monospace; font-size: 0.95rem; line-height: 1.5; white-space: pre-wrap; }
+    
+    /* Attached Download Banner inside Modal */
+    .attachment-box { background: #eef9f1; border: 1px solid #c3e6cb; border-radius: 5px; padding: 10px 15px; display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
+    .attachment-info { font-size: 0.9rem; color: #155724; }
+    .btn-download { background: #28a745; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 0.85rem; font-weight: bold; }
+    .btn-download:hover { background: #218838; }
   </style>
 </head>
 <body>
@@ -114,7 +121,8 @@
         <p class="description">Accept 10 integers, print separately the positive and negative numbers, then print the sum of all the positive integers and the average of all negative numbers.</p>
       </div>
       <div class="actions">
-        <button class="btn btn-primary" onclick="openModal('Problem #1', 'codeP1', 'Screenshot 2026-08-05 183442.png', 'Screenshot 2026-08-05 183541.png')">View</button>
+        <button class="btn btn-primary" onclick="openModal('Problem #1', 'codeP1', 'Screenshot 2026-08-05 183442.png', 'Screenshot 2026-08-05 183541.png', 'problem1.py')">View</button>
+        <a class="btn btn-secondary" href="problem1.py" download>Download .py</a>
       </div>
     </div>
 
@@ -129,7 +137,8 @@
         <p class="description">Print the Fibonacci series of an input number.</p>
       </div>
       <div class="actions">
-        <button class="btn btn-primary" onclick="openModal('Problem #2', 'codeP2', 'Screenshot 2026-08-05 183642.png', 'Screenshot 2026-08-05 183929.png')">View</button>
+        <button class="btn btn-primary" onclick="openModal('Problem #2', 'codeP2', 'Screenshot 2026-08-05 183642.png', 'Screenshot 2026-08-05 183929.png', 'problem2.py')">View</button>
+        <a class="btn btn-secondary" href="problem2.py" download>Download .py</a>
       </div>
     </div>
 
@@ -144,7 +153,8 @@
         <p class="description">Print the Factorial series and result of an input number.</p>
       </div>
       <div class="actions">
-        <button class="btn btn-primary" onclick="openModal('Problem #3', 'codeP3', 'Screenshot 2026-08-05 184036.png', 'Screenshot 2026-08-05 184355.png')">View</button>
+        <button class="btn btn-primary" onclick="openModal('Problem #3', 'codeP3', 'Screenshot 2026-08-05 184036.png', 'Screenshot 2026-08-05 184355.png', 'problem3.py')">View</button>
+        <a class="btn btn-secondary" href="problem3.py" download>Download .py</a>
       </div>
     </div>
 
@@ -159,7 +169,8 @@
         <p class="description">Read a sentence (string) and count each character in the string, not including special characters. Capital letters should have the same count with small letters. Print each letter and its count in alphabetical order.</p>
       </div>
       <div class="actions">
-        <button class="btn btn-primary" onclick="openModal('Problem #4', 'codeP4', 'Screenshot 2026-08-05 185025.png', 'Screenshot 2026-08-05 184838.png')">View</button>
+        <button class="btn btn-primary" onclick="openModal('Problem #4', 'codeP4', 'Screenshot 2026-08-05 185025.png', 'Screenshot 2026-08-05 184838.png', 'problem4.py')">View</button>
+        <a class="btn btn-secondary" href="problem4.py" download>Download .py</a>
       </div>
     </div>
 
@@ -169,7 +180,7 @@
   <footer>
     <img src="Butil.jpg" alt="John Denver R. Butil" class="profile-bubble">
     <h3 class="profile-name">John Denver R. Butil</h3>
-    <p class="profile-course">BS / OOP Student</p>
+    <p class="profile-course">BSIT 2-3 / OOP Student</p>
   </footer>
 
   <!-- Hidden Code Templates -->
@@ -286,11 +297,19 @@ for letter in sorted(counts.keys()):
           </div>
         </div>
       </div>
+
+      <!-- Download Banner inside Modal -->
+      <div class="attachment-box">
+        <div class="attachment-info">
+          📁 <strong>Source Code File:</strong> <span id="attachedFileName">script.py</span>
+        </div>
+        <a id="downloadLink" href="#" download class="btn-download">Download .py File</a>
+      </div>
     </div>
   </div>
 
   <script>
-    function openModal(title, templateId, codeImagePath, outputImagePath) {
+    function openModal(title, templateId, codeImagePath, outputImagePath, fileName) {
       document.getElementById('modalTitle').textContent = title;
       
       // Load Python code text
@@ -300,6 +319,12 @@ for letter in sorted(counts.keys()):
       // Load images
       document.getElementById('modalCodeImage').src = codeImagePath;
       document.getElementById('modalOutputImage').src = outputImagePath;
+      
+      // Update file download link inside modal
+      document.getElementById('attachedFileName').textContent = fileName;
+      const downloadBtn = document.getElementById('downloadLink');
+      downloadBtn.href = fileName;
+      downloadBtn.setAttribute('download', fileName);
       
       document.getElementById('codeModal').style.display = 'flex';
     }
