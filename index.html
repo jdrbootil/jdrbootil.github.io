@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Assignment Portfolio</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f4f6f9; margin: 0; padding: 20px; }
+    
+    /* Styled Blue Header Section */
+    header { 
+      text-align: center; 
+      margin-bottom: 30px; 
+      background-color: #3498db; 
+      padding: 30px 20px; 
+      border-radius: 8px; 
+      box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
+    }
+    h1 { 
+      color: #ffffff; 
+      margin-bottom: 8px; 
+      margin-top: 0; 
+    }
+    p.subtitle { 
+      color: #e0f2fe; 
+      margin-top: 0; 
+      margin-bottom: 0; 
+    }
+    
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto; }
+    .card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between; }
+    
+    .card-img { width: 100%; height: 160px; object-fit: cover; border-bottom: 1px solid #eee; }
+    
+    .card-body { padding: 20px 20px 10px 20px; }
+    .card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .doc-icon { font-size: 1.5rem; }
+    .card-title { font-size: 1.1rem; font-weight: bold; color: #2c3e50; margin: 0; }
+    .description { font-size: 0.9rem; color: #555; margin-bottom: 15px; }
+    
+    .actions { padding: 0 20px 20px 20px; display: flex; }
+    .btn { text-decoration: none; text-align: center; padding: 10px 12px; border-radius: 5px; font-size: 0.9rem; font-weight: bold; width: 100%; border: none; cursor: pointer; display: block; box-sizing: border-box; }
+    .btn-primary { background: #3498db; color: white; }
+    .btn:hover { opacity: 0.9; }
+
+    /* Bottom Profile Bubble Section */
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      padding: 30px 20px;
+      border-top: 2px dashed #cbd5e1;
+    }
+    .profile-bubble {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #3498db;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      margin-bottom: 12px;
+    }
+    .profile-name {
+      font-size: 1.25rem;
+      font-weight: bold;
+      color: #2c3e50;
+      margin: 0 0 4px 0;
+    }
+    .profile-course {
+      font-size: 0.95rem;
+      color: #64748b;
+      margin: 0;
+    }
+
+    /* Modal Viewer */
+    .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); justify-content: center; align-items: center; z-index: 1000; }
+    .modal-content { background: white; width: 90%; max-width: 900px; height: 85vh; border-radius: 8px; position: relative; padding: 20px; display: flex; flex-direction: column; }
+    .close-btn { position: absolute; top: 10px; right: 15px; font-size: 1.8rem; border: none; background: none; cursor: pointer; color: #555; }
+    .modal-header { margin-bottom: 10px; padding-right: 30px; }
+    .modal-title { margin: 0; color: #2c3e50; font-size: 1.2rem; }
+    
+    /* Scrollable Container inside Modal */
+    .modal-body { flex-grow: 1; overflow-y: auto; display: flex; flex-direction: column; gap: 20px; padding-right: 5px; }
+
+    /* Screenshot Display Section */
+    .image-preview-box { background: #f8f9fa; border: 1px solid #ddd; border-radius: 5px; padding: 10px; text-align: center; }
+    .image-preview-box img { max-width: 100%; max-height: 350px; object-fit: contain; border-radius: 4px; border: 1px solid #ccc; }
+    .section-label { font-size: 0.85rem; font-weight: bold; color: #555; margin-bottom: 8px; text-align: left; text-transform: uppercase; letter-spacing: 0.5px; }
+
+    /* Code Viewer Container */
+    .viewer-container { border: 1px solid #333; border-radius: 5px; overflow-x: auto; background: #1e1e1e; padding: 15px; }
+    pre { margin: 0; color: #d4d4d4; font-family: 'Consolas', 'Courier New', monospace; font-size: 0.95rem; line-height: 1.5; white-space: pre-wrap; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Assignment #2 in Object-Oriented Programming</h1>
+    <p class="subtitle">Submitted by John Denver R. Butil.</p>
+    <p class="subtitle">Submitted to Ms. Gonzales.</p>
+    <p class="subtitle">(Note: This is my first time submitting an assignment in this format. I used HTML)</p>
+  </header>
+
+  <div class="grid">
+    
+    <!-- Problem #1 Card -->
+    <div class="card">
+      <img src="Screenshot 2026-08-05 183442.png" alt="Problem 1 Preview" class="card-img">
+      <div class="card-body">
+        <div class="card-header">
+          <span class="doc-icon">📄</span>
+          <h2 class="card-title">Problem #1</h2>
+        </div>
+        <p class="description">Accept 10 integers, print separately the positive and negative numbers, then print the sum of all the positive integers and the average of all negative numbers.</p>
+      </div>
+      <div class="actions">
+        <button class="btn btn-primary" onclick="openModal('Problem #1', 'codeP1', 'Screenshot 2026-08-05 183442.png', 'Screenshot 2026-08-05 183541.png')">View</button>
+      </div>
+    </div>
+
+    <!-- Problem #2 Card -->
+    <div class="card">
+      <img src="Screenshot 2026-08-05 183642.png" alt="Problem 2 Preview" class="card-img">
+      <div class="card-body">
+        <div class="card-header">
+          <span class="doc-icon">📄</span>
+          <h2 class="card-title">Problem #2</h2>
+        </div>
+        <p class="description">Print the Fibonacci series of an input number.</p>
+      </div>
+      <div class="actions">
+        <button class="btn btn-primary" onclick="openModal('Problem #2', 'codeP2', 'Screenshot 2026-08-05 183642.png', 'Screenshot 2026-08-05 183929.png')">View</button>
+      </div>
+    </div>
+
+    <!-- Problem #3 Card -->
+    <div class="card">
+      <img src="Screenshot 2026-08-05 184036.png" alt="Problem 3 Preview" class="card-img">
+      <div class="card-body">
+        <div class="card-header">
+          <span class="doc-icon">📄</span>
+          <h2 class="card-title">Problem #3</h2>
+        </div>
+        <p class="description">Print the Factorial series and result of an input number.</p>
+      </div>
+      <div class="actions">
+        <button class="btn btn-primary" onclick="openModal('Problem #3', 'codeP3', 'Screenshot 2026-08-05 184036.png', 'Screenshot 2026-08-05 184355.png')">View</button>
+      </div>
+    </div>
+
+    <!-- Problem #4 Card -->
+    <div class="card">
+      <img src="Screenshot 2026-08-05 185025.png" alt="Problem 4 Preview" class="card-img">
+      <div class="card-body">
+        <div class="card-header">
+          <span class="doc-icon">📄</span>
+          <h2 class="card-title">Problem #4</h2>
+        </div>
+        <p class="description">Read a sentence (string) and count each character in the string, not including special characters. Capital letters should have the same count with small letters. Print each letter and its count in alphabetical order.</p>
+      </div>
+      <div class="actions">
+        <button class="btn btn-primary" onclick="openModal('Problem #4', 'codeP4', 'Screenshot 2026-08-05 185025.png', 'Screenshot 2026-08-05 184838.png')">View</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer Profile Section -->
+  <footer>
+    <img src="Butil.jpg" alt="John Denver R. Butil" class="profile-bubble">
+    <h3 class="profile-name">John Denver R. Butil</h3>
+    <p class="profile-course">BS / OOP Student</p>
+  </footer>
+
+  <!-- Hidden Code Templates -->
+  <template id="codeP1">
+#Problem #1
+#Accept 10 Integers
+#Print the positive and negative numbers separately
+#Print thesum of the positive numbers and the average of thenegative number
+
+nums = [int(input(f"Enter an integer {i+1}: ")) for i in range(10)]
+
+positives = [n for n in nums if n > 0]
+negatives = [n for n in nums if n < 0]
+
+print("Positive numbers:", *positives)
+print("Negative numbers:", *negatives)
+print("Sum of positive integers:", sum(positives))
+
+if negatives:
+    print("Average of negative numbers:", sum(negatives) / len(negatives))
+else:
+    print("Average of negative numbers: N/A")
+  </template>
+
+  <template id="codeP2">
+#Problem #2
+#Printing the fibonacci series of an input number
+num = int(input("Enter a number of your choice: "))
+n1, n2 = 0, 1
+sum = 0
+if num<=0:
+    print("That's too low, enter a number greater than 0.")
+else:
+    for i in range(0, num):
+        print(sum, end=" ")
+        n1 = n2
+        n2 = sum
+        sum = n1 + n2
+  </template>
+
+  <template id="codeP3">
+#Problem #3
+#Print the Factorial series and result of an input number.
+
+num = int(input("Enter a number: "))
+factorial = 1
+
+if num < 0:
+    print("Factorial is not defined for negative numbers.")
+elif num == 0:
+    print("The factorial of 0 is 1.")
+else:
+    for i in range(1, num + 1):
+        factorial *= i
+    print(f"The factorial of {num} is {factorial}.")
+  </template>
+
+  <template id="codeP4">
+#Problem #4
+#Letter used counter (EXCLUDING special characters)
+
+import string
+alphabet = string.ascii_lowercase
+
+text = str(input("Enter a sentence: "))
+
+counts = {}
+
+for char in text:
+    
+    if 'A' <= char <= 'Z':
+        clean_char = chr(ord(char) + 32)
+    else:
+        clean_char = char
+    
+    if clean_char in alphabet:
+        counts[clean_char] = counts.get(clean_char, 0) + 1
+
+for letter in sorted(counts.keys()):
+    print(f"{letter}: {counts[letter]}")
+  </template>
+
+  <!-- Modal Display -->
+  <div id="codeModal" class="modal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeModal()">&times;</button>
+      
+      <div class="modal-header">
+        <h2 class="modal-title" id="modalTitle">Problem Details</h2>
+      </div>
+
+      <div class="modal-body">
+        <!-- Python Source Code Section -->
+        <div>
+          <div class="section-label">💻 Source Code</div>
+          <div class="viewer-container">
+            <pre><code id="modalCodeDisplay"></code></pre>
+          </div>
+        </div>
+
+        <!-- Code Screenshot Preview Section -->
+        <div>
+          <div class="section-label">📷 Code Screenshot</div>
+          <div class="image-preview-box">
+            <img id="modalCodeImage" src="" alt="Code Screenshot">
+          </div>
+        </div>
+
+        <!-- Output Screenshot Preview Section -->
+        <div>
+          <div class="section-label">🖥️ Output Screenshot</div>
+          <div class="image-preview-box">
+            <img id="modalOutputImage" src="" alt="Output Screenshot">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openModal(title, templateId, codeImagePath, outputImagePath) {
+      document.getElementById('modalTitle').textContent = title;
+      
+      // Load Python code text
+      const codeText = document.getElementById(templateId).innerHTML.trim();
+      document.getElementById('modalCodeDisplay').textContent = codeText;
+
+      // Load images
+      document.getElementById('modalCodeImage').src = codeImagePath;
+      document.getElementById('modalOutputImage').src = outputImagePath;
+      
+      document.getElementById('codeModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('codeModal').style.display = 'none';
+      document.getElementById('modalCodeDisplay').textContent = '';
+      document.getElementById('modalCodeImage').src = '';
+      document.getElementById('modalOutputImage').src = '';
+    }
+  </script>
+
+</body>
+</html>
