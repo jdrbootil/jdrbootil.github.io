@@ -39,9 +39,10 @@
     .card-title { font-size: 1.1rem; font-weight: bold; color: #2c3e50; margin: 0; }
     .description { font-size: 0.9rem; color: #555; margin-bottom: 15px; }
     
-    .actions { padding: 0 20px 20px 20px; display: flex; }
-    .btn { text-decoration: none; text-align: center; padding: 10px 12px; border-radius: 5px; font-size: 0.9rem; font-weight: bold; width: 100%; border: none; cursor: pointer; display: block; box-sizing: border-box; }
+    .actions { padding: 0 20px 20px 20px; display: flex; gap: 8px; }
+    .btn { text-decoration: none; text-align: center; padding: 10px 12px; border-radius: 5px; font-size: 0.85rem; font-weight: bold; width: 100%; border: none; cursor: pointer; display: inline-block; box-sizing: border-box; }
     .btn-primary { background: #3498db; color: white; }
+    .btn-secondary { background: #2ecc71; color: white; }
     .btn:hover { opacity: 0.9; }
 
     /* Bottom Profile Bubble Section */
@@ -76,7 +77,7 @@
     .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); justify-content: center; align-items: center; z-index: 1000; }
     .modal-content { background: white; width: 90%; max-width: 900px; height: 85vh; border-radius: 8px; position: relative; padding: 20px; display: flex; flex-direction: column; }
     .close-btn { position: absolute; top: 10px; right: 15px; font-size: 1.8rem; border: none; background: none; cursor: pointer; color: #555; }
-    .modal-header { margin-bottom: 10px; padding-right: 30px; }
+    .modal-header { margin-bottom: 10px; padding-right: 30px; display: flex; justify-content: space-between; align-items: center; }
     .modal-title { margin: 0; color: #2c3e50; font-size: 1.2rem; }
     
     /* Scrollable Container inside Modal */
@@ -114,7 +115,8 @@
         <p class="description">Accept 10 integers, print separately the positive and negative numbers, then print the sum of all the positive integers and the average of all negative numbers.</p>
       </div>
       <div class="actions">
-        <button class="btn btn-primary" onclick="openModal('Problem #1', 'codeP1', 'Screenshot 2026-08-05 183442.png', 'Screenshot 2026-08-05 183541.png')">View</button>
+        <button class="btn btn-primary" onclick="openModal('Problem #1', 'codeP1', 'Screenshot 2026-08-05 183442.png', 'Screenshot 2026-08-05 183541.png', 'problem1.py')">View</button>
+        <button class="btn btn-secondary" onclick="downloadCode('codeP1', 'problem1.py')">Download</button>
       </div>
     </div>
 
@@ -129,7 +131,8 @@
         <p class="description">Print the Fibonacci series of an input number.</p>
       </div>
       <div class="actions">
-        <button class="btn btn-primary" onclick="openModal('Problem #2', 'codeP2', 'Screenshot 2026-08-05 183642.png', 'Screenshot 2026-08-05 183929.png')">View</button>
+        <button class="btn btn-primary" onclick="openModal('Problem #2', 'codeP2', 'Screenshot 2026-08-05 183642.png', 'Screenshot 2026-08-05 183929.png', 'problem2.py')">View</button>
+        <button class="btn btn-secondary" onclick="downloadCode('codeP2', 'problem2.py')">Download</button>
       </div>
     </div>
 
@@ -144,7 +147,8 @@
         <p class="description">Print the Factorial series and result of an input number.</p>
       </div>
       <div class="actions">
-        <button class="btn btn-primary" onclick="openModal('Problem #3', 'codeP3', 'Screenshot 2026-08-09 195806.png', 'Screenshot 2026-08-09 195654.png')">View</button>
+        <button class="btn btn-primary" onclick="openModal('Problem #3', 'codeP3', 'Screenshot 2026-08-09 195806.png', 'Screenshot 2026-08-09 195654.png', 'problem3.py')">View</button>
+        <button class="btn btn-secondary" onclick="downloadCode('codeP3', 'problem3.py')">Download</button>
       </div>
     </div>
 
@@ -159,7 +163,8 @@
         <p class="description">Read a sentence (string) and count each character in the string, not including special characters. Capital letters should have the same count with small letters. Print each letter and its count in alphabetical order.</p>
       </div>
       <div class="actions">
-        <button class="btn btn-primary" onclick="openModal('Problem #4', 'codeP4', 'Screenshot 2026-08-05 185025.png', 'Screenshot 2026-08-05 184838.png')">View</button>
+        <button class="btn btn-primary" onclick="openModal('Problem #4', 'codeP4', 'Screenshot 2026-08-05 185025.png', 'Screenshot 2026-08-05 184838.png', 'problem4.py')">View</button>
+        <button class="btn btn-secondary" onclick="downloadCode('codeP4', 'problem4.py')">Download</button>
       </div>
     </div>
 
@@ -265,6 +270,7 @@ for letter in sorted(counts.keys()):
       
       <div class="modal-header">
         <h2 class="modal-title" id="modalTitle">Problem Details</h2>
+        <button id="modalDownloadBtn" class="btn btn-secondary" style="width: auto; padding: 6px 15px; margin-right: 25px;">Download Script</button>
       </div>
 
       <div class="modal-body">
@@ -296,7 +302,7 @@ for letter in sorted(counts.keys()):
   </div>
 
   <script>
-    function openModal(title, templateId, codeImagePath, outputImagePath) {
+    function openModal(title, templateId, codeImagePath, outputImagePath, filename) {
       document.getElementById('modalTitle').textContent = title;
       
       // Load Python code text
@@ -307,6 +313,12 @@ for letter in sorted(counts.keys()):
       document.getElementById('modalCodeImage').src = codeImagePath;
       document.getElementById('modalOutputImage').src = outputImagePath;
       
+      // Attach download handler to modal button
+      const modalBtn = document.getElementById('modalDownloadBtn');
+      modalBtn.onclick = function() {
+        downloadCode(templateId, filename);
+      };
+
       document.getElementById('codeModal').style.display = 'flex';
     }
 
@@ -315,6 +327,16 @@ for letter in sorted(counts.keys()):
       document.getElementById('modalCodeDisplay').textContent = '';
       document.getElementById('modalCodeImage').src = '';
       document.getElementById('modalOutputImage').src = '';
+    }
+
+    function downloadCode(templateId, filename) {
+      const codeText = document.getElementById(templateId).innerHTML.trim();
+      const blob = new Blob([codeText], { type: 'text/plain' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = filename;
+      link.click();
+      URL.revokeObjectURL(link.href);
     }
   </script>
 
