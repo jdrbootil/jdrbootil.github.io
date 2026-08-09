@@ -1,5 +1,6 @@
 #Problem #3
-#Print the Factorial series and result of an input number.
+#Print the factorial series
+#And print the results
 
 num = int(input("Enter a number: "))
 factorial = 1
@@ -11,4 +12,9 @@ elif num == 0:
 else:
     for i in range(1, num + 1):
         factorial *= i
-    print(f"The factorial of {num} is {factorial}.")
+
+    series_list = [str(x) for x in range(num, 0, -1)]
+    series_str = "*".join(series_list)
+
+    print(f"Factorial series: {series_str}")
+    print(f"Results: {factorial}")
