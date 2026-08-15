@@ -9,7 +9,7 @@
     body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f4f6f9; margin: 0; padding: 20px; }
     
     /* Styled Blue Header Section */
-    header { 
+    header, .assignment-header { 
       text-align: center; 
       margin-bottom: 30px; 
       background-color: #3498db; 
@@ -17,7 +17,10 @@
       border-radius: 8px; 
       box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
     }
-    h1 { 
+    .assignment-header {
+      margin-top: 50px;
+    }
+    h1, h2.section-header-title { 
       color: #ffffff; 
       margin-bottom: 8px; 
       margin-top: 0; 
@@ -39,10 +42,10 @@
     .card-title { font-size: 1.1rem; font-weight: bold; color: #2c3e50; margin: 0; }
     .description { font-size: 0.9rem; color: #555; margin-bottom: 15px; }
     
-    .actions { padding: 0 20px 20px 20px; display: flex; gap: 8px; }
-    .btn { text-decoration: none; text-align: center; padding: 10px 12px; border-radius: 5px; font-size: 0.85rem; font-weight: bold; width: 100%; border: none; cursor: pointer; display: inline-block; box-sizing: border-box; }
+    .actions { padding: 0 20px 20px 20px; display: flex; gap: 10px; }
+    .btn { text-decoration: none; text-align: center; padding: 10px 12px; border-radius: 5px; font-size: 0.85rem; font-weight: bold; flex: 1; border: none; cursor: pointer; display: block; box-sizing: border-box; }
     .btn-primary { background: #3498db; color: white; }
-    .btn-secondary { background: #2ecc71; color: white; }
+    .btn-secondary { background: #27ae60; color: white; }
     .btn:hover { opacity: 0.9; }
 
     /* Bottom Profile Bubble Section */
@@ -77,7 +80,7 @@
     .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); justify-content: center; align-items: center; z-index: 1000; }
     .modal-content { background: white; width: 90%; max-width: 900px; height: 85vh; border-radius: 8px; position: relative; padding: 20px; display: flex; flex-direction: column; }
     .close-btn { position: absolute; top: 10px; right: 15px; font-size: 1.8rem; border: none; background: none; cursor: pointer; color: #555; }
-    .modal-header { margin-bottom: 10px; padding-right: 30px; display: flex; justify-content: space-between; align-items: center; }
+    .modal-header { margin-bottom: 10px; padding-right: 30px; }
     .modal-title { margin: 0; color: #2c3e50; font-size: 1.2rem; }
     
     /* Scrollable Container inside Modal */
@@ -91,10 +94,17 @@
     /* Code Viewer Container */
     .viewer-container { border: 1px solid #333; border-radius: 5px; overflow-x: auto; background: #1e1e1e; padding: 15px; }
     pre { margin: 0; color: #d4d4d4; font-family: 'Consolas', 'Courier New', monospace; font-size: 0.95rem; line-height: 1.5; white-space: pre-wrap; }
+    
+    /* Attached Download Banner inside Modal */
+    .attachment-box { background: #eef9f1; border: 1px solid #c3e6cb; border-radius: 5px; padding: 10px 15px; display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
+    .attachment-info { font-size: 0.9rem; color: #155724; }
+    .btn-download { background: #28a745; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 0.85rem; font-weight: bold; }
+    .btn-download:hover { background: #218838; }
   </style>
 </head>
 <body>
 
+  <!-- Assignment #2 Header -->
   <header>
     <h1>Assignment #2 in Object-Oriented Programming</h1>
     <p class="subtitle">Submitted by John Denver R. Butil.</p>
@@ -116,7 +126,7 @@
       </div>
       <div class="actions">
         <button class="btn btn-primary" onclick="openModal('Problem #1', 'codeP1', 'Screenshot 2026-08-05 183442.png', 'Screenshot 2026-08-05 183541.png', 'problem1.py')">View</button>
-        <button class="btn btn-secondary" onclick="downloadCode('codeP1', 'problem1.py')">Download</button>
+        <a class="btn btn-secondary" href="problem1.py" download>Download .py</a>
       </div>
     </div>
 
@@ -132,13 +142,13 @@
       </div>
       <div class="actions">
         <button class="btn btn-primary" onclick="openModal('Problem #2', 'codeP2', 'Screenshot 2026-08-05 183642.png', 'Screenshot 2026-08-05 183929.png', 'problem2.py')">View</button>
-        <button class="btn btn-secondary" onclick="downloadCode('codeP2', 'problem2.py')">Download</button>
+        <a class="btn btn-secondary" href="problem2.py" download>Download .py</a>
       </div>
     </div>
 
     <!-- Problem #3 Card -->
     <div class="card">
-      <img src="Screenshot 2026-08-09 195806.png" alt="Problem 3 Preview" class="card-img">
+      <img src="Screenshot 2026-08-05 184036.png" alt="Problem 3 Preview" class="card-img">
       <div class="card-body">
         <div class="card-header">
           <span class="doc-icon">📄</span>
@@ -147,8 +157,8 @@
         <p class="description">Print the Factorial series and result of an input number.</p>
       </div>
       <div class="actions">
-        <button class="btn btn-primary" onclick="openModal('Problem #3', 'codeP3', 'Screenshot 2026-08-09 195806.png', 'Screenshot 2026-08-09 195654.png', 'problem3.py')">View</button>
-        <button class="btn btn-secondary" onclick="downloadCode('codeP3', 'problem3.py')">Download</button>
+        <button class="btn btn-primary" onclick="openModal('Problem #3', 'codeP3', 'Screenshot 2026-08-05 184036.png', 'Screenshot 2026-08-05 184355.png', 'problem3.py')">View</button>
+        <a class="btn btn-secondary" href="problem3.py" download>Download .py</a>
       </div>
     </div>
 
@@ -164,7 +174,35 @@
       </div>
       <div class="actions">
         <button class="btn btn-primary" onclick="openModal('Problem #4', 'codeP4', 'Screenshot 2026-08-05 185025.png', 'Screenshot 2026-08-05 184838.png', 'problem4.py')">View</button>
-        <button class="btn btn-secondary" onclick="downloadCode('codeP4', 'problem4.py')">Download</button>
+        <a class="btn btn-secondary" href="problem4.py" download>Download .py</a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Assignment #3 Header Section -->
+  <div class="assignment-header">
+    <h2 class="section-header-title">Assignment #3 in Object-Oriented Programming</h2>
+    <p class="subtitle">Submitted by John Denver R. Butil.</p>
+    <p class="subtitle">Submitted to Ms. Gonzales.</p>
+  </div>
+
+  <!-- Assignment #3 Grid -->
+  <div class="grid">
+    
+    <!-- Assignment 3 - Problem #1 Card -->
+    <div class="card">
+      <img src="Screenshot 2026-08-15 182606.png" alt="Assignment 3 Problem 1 Preview" class="card-img">
+      <div class="card-body">
+        <div class="card-header">
+          <span class="doc-icon">📄</span>
+          <h2 class="card-title">Problem #1</h2>
+        </div>
+        <p class="description">Read 5 numbers into a list, modify elements, append 600, insert 300 at index 2, remove the 2nd to last element, and print the updated list.</p>
+      </div>
+      <div class="actions">
+        <button class="btn btn-primary" onclick="openModal('Assignment #3 - Problem #1', 'codeA3P1', 'Screenshot 2026-08-15 182606.png', 'Screenshot 2026-08-15 182641.png', 'LIST.py')">View</button>
+        <a class="btn btn-secondary" href="LIST.py" download>Download .py</a>
       </div>
     </div>
 
@@ -217,8 +255,7 @@ else:
 
   <template id="codeP3">
 #Problem #3
-#Print the factorial series
-#And print the results
+#Print the Factorial series and result of an input number.
 
 num = int(input("Enter a number: "))
 factorial = 1
@@ -230,12 +267,7 @@ elif num == 0:
 else:
     for i in range(1, num + 1):
         factorial *= i
-
-    series_list = [str(x) for x in range(num, 0, -1)]
-    series_str = "*".join(series_list)
-
-    print(f"Factorial series: {series_str}")
-    print(f"Results: {factorial}")
+    print(f"The factorial of {num} is {factorial}.")
   </template>
 
   <template id="codeP4">
@@ -263,6 +295,29 @@ for letter in sorted(counts.keys()):
     print(f"{letter}: {counts[letter]}")
   </template>
 
+  <template id="codeA3P1">
+#Read 5 numbers, put them in a list, and print the list
+#Change the 2nd element of the list (index 1)
+#Append 600 to the end
+#Insert 300 at the 3rd position (index 2)
+#Remove the 2nd to the last element (index -2)
+#Print the updated list
+numbers = []
+for i in range(5):
+    num = int(input(f"Enter integer no. {i + 1}: "))
+    numbers.append(num)
+
+print("\nOriginal List:", numbers)
+
+new_value = int(input("\nEnter a new value for the 2nd integer: "))
+numbers[1] = new_value
+numbers.append(600)
+numbers.insert(2, 300)
+del numbers[-2]
+
+print("\nUpdated List:", numbers)
+  </template>
+
   <!-- Modal Display -->
   <div id="codeModal" class="modal">
     <div class="modal-content">
@@ -270,7 +325,6 @@ for letter in sorted(counts.keys()):
       
       <div class="modal-header">
         <h2 class="modal-title" id="modalTitle">Problem Details</h2>
-        <button id="modalDownloadBtn" class="btn btn-secondary" style="width: auto; padding: 6px 15px; margin-right: 25px;">Download Script</button>
       </div>
 
       <div class="modal-body">
@@ -298,11 +352,19 @@ for letter in sorted(counts.keys()):
           </div>
         </div>
       </div>
+
+      <!-- Download Banner inside Modal -->
+      <div class="attachment-box">
+        <div class="attachment-info">
+          📁 <strong>Source Code File:</strong> <span id="attachedFileName">script.py</span>
+        </div>
+        <a id="downloadLink" href="#" download class="btn-download">Download .py File</a>
+      </div>
     </div>
   </div>
 
   <script>
-    function openModal(title, templateId, codeImagePath, outputImagePath, filename) {
+    function openModal(title, templateId, codeImagePath, outputImagePath, fileName) {
       document.getElementById('modalTitle').textContent = title;
       
       // Load Python code text
@@ -313,12 +375,12 @@ for letter in sorted(counts.keys()):
       document.getElementById('modalCodeImage').src = codeImagePath;
       document.getElementById('modalOutputImage').src = outputImagePath;
       
-      // Attach download handler to modal button
-      const modalBtn = document.getElementById('modalDownloadBtn');
-      modalBtn.onclick = function() {
-        downloadCode(templateId, filename);
-      };
-
+      // Update file download link inside modal
+      document.getElementById('attachedFileName').textContent = fileName;
+      const downloadBtn = document.getElementById('downloadLink');
+      downloadBtn.href = fileName;
+      downloadBtn.setAttribute('download', fileName);
+      
       document.getElementById('codeModal').style.display = 'flex';
     }
 
@@ -327,16 +389,6 @@ for letter in sorted(counts.keys()):
       document.getElementById('modalCodeDisplay').textContent = '';
       document.getElementById('modalCodeImage').src = '';
       document.getElementById('modalOutputImage').src = '';
-    }
-
-    function downloadCode(templateId, filename) {
-      const codeText = document.getElementById(templateId).innerHTML.trim();
-      const blob = new Blob([codeText], { type: 'text/plain' });
-      const link = document.createElement('a');
-      link.href = URL.createObjectURL(blob);
-      link.download = filename;
-      link.click();
-      URL.revokeObjectURL(link.href);
     }
   </script>
 
