@@ -9,7 +9,7 @@
     body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f4f6f9; margin: 0; padding: 20px; }
     
     /* Styled Blue Header Section */
-    header, .assignment-header { 
+    header { 
       text-align: center; 
       margin-bottom: 30px; 
       background-color: #3498db; 
@@ -17,10 +17,7 @@
       border-radius: 8px; 
       box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
     }
-    .assignment-header {
-      margin-top: 50px;
-    }
-    h1, h2.section-header-title { 
+    h1 { 
       color: #ffffff; 
       margin-bottom: 8px; 
       margin-top: 0; 
@@ -31,6 +28,17 @@
       margin-bottom: 0; 
     }
     
+    .section-heading {
+      text-align: center; 
+      color: #2c3e50; 
+      margin: 40px 0 20px 0; 
+      border-bottom: 2px solid #3498db; 
+      padding-bottom: 8px; 
+      max-width: 1100px; 
+      margin-left: auto; 
+      margin-right: auto;
+    }
+
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; max-width: 1100px; margin: 0 auto; }
     .card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05); display: flex; flex-direction: column; justify-content: space-between; }
     
@@ -42,10 +50,9 @@
     .card-title { font-size: 1.1rem; font-weight: bold; color: #2c3e50; margin: 0; }
     .description { font-size: 0.9rem; color: #555; margin-bottom: 15px; }
     
-    .actions { padding: 0 20px 20px 20px; display: flex; gap: 10px; }
-    .btn { text-decoration: none; text-align: center; padding: 10px 12px; border-radius: 5px; font-size: 0.85rem; font-weight: bold; flex: 1; border: none; cursor: pointer; display: block; box-sizing: border-box; }
+    .actions { padding: 0 20px 20px 20px; display: flex; }
+    .btn { text-decoration: none; text-align: center; padding: 10px 12px; border-radius: 5px; font-size: 0.9rem; font-weight: bold; width: 100%; border: none; cursor: pointer; display: block; box-sizing: border-box; }
     .btn-primary { background: #3498db; color: white; }
-    .btn-secondary { background: #27ae60; color: white; }
     .btn:hover { opacity: 0.9; }
 
     /* Bottom Profile Bubble Section */
@@ -94,24 +101,19 @@
     /* Code Viewer Container */
     .viewer-container { border: 1px solid #333; border-radius: 5px; overflow-x: auto; background: #1e1e1e; padding: 15px; }
     pre { margin: 0; color: #d4d4d4; font-family: 'Consolas', 'Courier New', monospace; font-size: 0.95rem; line-height: 1.5; white-space: pre-wrap; }
-    
-    /* Attached Download Banner inside Modal */
-    .attachment-box { background: #eef9f1; border: 1px solid #c3e6cb; border-radius: 5px; padding: 10px 15px; display: flex; justify-content: space-between; align-items: center; margin-top: 10px; }
-    .attachment-info { font-size: 0.9rem; color: #155724; }
-    .btn-download { background: #28a745; color: white; padding: 6px 12px; border-radius: 4px; text-decoration: none; font-size: 0.85rem; font-weight: bold; }
-    .btn-download:hover { background: #218838; }
   </style>
 </head>
 <body>
 
-  <!-- Assignment #2 Header -->
   <header>
-    <h1>Activity #1 in Object-Oriented Programming</h1>
+    <h1>Assignment Portfolio in Object-Oriented Programming</h1>
     <p class="subtitle">Submitted by John Denver R. Butil.</p>
     <p class="subtitle">Submitted to Ms. Gonzales.</p>
     <p class="subtitle">(Note: This is my first time submitting an assignment in this format. I used HTML)</p>
   </header>
 
+  <!-- Activity #2 Section -->
+  <h2 class="section-heading">Activity #2</h2>
   <div class="grid">
     
     <!-- Problem #1 Card -->
@@ -125,8 +127,7 @@
         <p class="description">Accept 10 integers, print separately the positive and negative numbers, then print the sum of all the positive integers and the average of all negative numbers.</p>
       </div>
       <div class="actions">
-        <button class="btn btn-primary" onclick="openModal('Problem #1', 'codeP1', 'Screenshot 2026-08-05 183442.png', 'Screenshot 2026-08-05 183541.png', 'problem1.py')">View</button>
-        <a class="btn btn-secondary" href="problem1.py" download>Download .py</a>
+        <button class="btn btn-primary" onclick="openModal('Problem #1 (Activity #2)', 'codeP1', 'Screenshot 2026-08-05 183442.png', 'Screenshot 2026-08-05 183541.png')">View</button>
       </div>
     </div>
 
@@ -141,8 +142,7 @@
         <p class="description">Print the Fibonacci series of an input number.</p>
       </div>
       <div class="actions">
-        <button class="btn btn-primary" onclick="openModal('Problem #2', 'codeP2', 'Screenshot 2026-08-05 183642.png', 'Screenshot 2026-08-05 183929.png', 'problem2.py')">View</button>
-        <a class="btn btn-secondary" href="problem2.py" download>Download .py</a>
+        <button class="btn btn-primary" onclick="openModal('Problem #2 (Activity #2)', 'codeP2', 'Screenshot 2026-08-05 183642.png', 'Screenshot 2026-08-05 183929.png')">View</button>
       </div>
     </div>
 
@@ -157,8 +157,7 @@
         <p class="description">Print the Factorial series and result of an input number.</p>
       </div>
       <div class="actions">
-        <button class="btn btn-primary" onclick="openModal('Problem #3', 'codeP3', 'Screenshot 2026-08-05 184036.png', 'Screenshot 2026-08-05 184355.png', 'problem3.py')">View</button>
-        <a class="btn btn-secondary" href="problem3.py" download>Download .py</a>
+        <button class="btn btn-primary" onclick="openModal('Problem #3 (Activity #2)', 'codeP3', 'Screenshot 2026-08-05 184036.png', 'Screenshot 2026-08-05 184355.png')">View</button>
       </div>
     </div>
 
@@ -173,52 +172,58 @@
         <p class="description">Read a sentence (string) and count each character in the string, not including special characters. Capital letters should have the same count with small letters. Print each letter and its count in alphabetical order.</p>
       </div>
       <div class="actions">
-        <button class="btn btn-primary" onclick="openModal('Problem #4', 'codeP4', 'Screenshot 2026-08-05 185025.png', 'Screenshot 2026-08-05 184838.png', 'problem4.py')">View</button>
-        <a class="btn btn-secondary" href="problem4.py" download>Download .py</a>
+        <button class="btn btn-primary" onclick="openModal('Problem #4 (Activity #2)', 'codeP4', 'Screenshot 2026-08-05 185025.png', 'Screenshot 2026-08-05 184838.png')">View</button>
       </div>
     </div>
 
   </div>
 
-  <!-- Assignment #3 Header Section -->
-  <div class="assignment-header">
-    <h2 class="section-header-title">Activity #2 in Object-Oriented Programming</h2>
-    <p class="subtitle">Submitted by John Denver R. Butil.</p>
-    <p class="subtitle">Submitted to Ms. Gonzales.</p>
-  </div>
-
-  <!-- Assignment #3 Grid -->
-  <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 345px)); justify-content: start;">
+  <!-- Activity #3 Section -->
+  <h2 class="section-heading">Activity #3</h2>
+  <div class="grid">
     
-    <!-- Assignment 3 - Problem #1 Card -->
+    <!-- Problem #1 Card -->
     <div class="card">
-      <img src="Screenshot 2026-08-15 182606.png" alt="Assignment 3 Problem 1 Preview" class="card-img">
+      <img src="Screenshot 2026-08-22 214649.png" alt="Problem 1 Preview" class="card-img">
       <div class="card-body">
         <div class="card-header">
           <span class="doc-icon">📄</span>
           <h2 class="card-title">Problem #1</h2>
         </div>
-        <p class="description">Read 5 numbers into a list, modify elements, append 600, insert 300 at index 2, remove the 2nd to last element, and print the updated list.</p>
+        <p class="description">Tells your western zodiac, traits, chinese zodiac, and forecast using a Tkinter GUI interface.</p>
       </div>
       <div class="actions">
-        <button class="btn btn-primary" onclick="openModal('Assignment #3 - Problem #1', 'codeA3P1', 'Screenshot 2026-08-15 182606.png', 'Screenshot 2026-08-15 182641.png', 'LIST.py')">View</button>
-        <a class="btn btn-secondary" href="LIST.py" download>Download .py</a>
+        <button class="btn btn-primary" onclick="openModal('Problem #1 (Activity #3)', 'codeAct3P1', 'Screenshot 2026-08-22 214649.png', 'Screenshot 2026-08-22 214727.png')">View</button>
       </div>
     </div>
 
-    <!-- Assignment 3 - Problem #2 Card -->
+    <!-- Problem #2 Card -->
     <div class="card">
-      <img src="Screenshot 2026-08-15 184743.png" alt="Assignment 3 Problem 2 Preview" class="card-img">
+      <img src="Screenshot 2026-08-22 214800.png" alt="Problem 2 Preview" class="card-img">
       <div class="card-body">
         <div class="card-header">
           <span class="doc-icon">📄</span>
           <h2 class="card-title">Problem #2</h2>
         </div>
-        <p class="description">Tkinter GUI Calculator supporting arithmetic operations (+, -, *, /), square root (√), square power (x²), clear (C), and decimal input.</p>
+        <p class="description">Generates a pattern of descending numbers in nested loops based on user input.</p>
       </div>
       <div class="actions">
-        <button class="btn btn-primary" onclick="openModal('Assignment #3 - Problem #2', 'codeA3P2', 'Screenshot 2026-08-15 184743.png', 'Screenshot 2026-08-15 184815.png', 'calculator.py')">View</button>
-        <a class="btn btn-secondary" href="calculator.py" download>Download .py</a>
+        <button class="btn btn-primary" onclick="openModal('Problem #2 (Activity #3)', 'codeAct3P2', 'Screenshot 2026-08-22 214800.png', 'Screenshot 2026-08-22 214816.png')">View</button>
+      </div>
+    </div>
+
+    <!-- Problem #3 Card -->
+    <div class="card">
+      <img src="Screenshot 2026-08-22 215016.png" alt="Problem 3 Preview" class="card-img">
+      <div class="card-body">
+        <div class="card-header">
+          <span class="doc-icon">📄</span>
+          <h2 class="card-title">Problem #3</h2>
+        </div>
+        <p class="description">Prints an asterisk pyramid with a specified number of layers using string multiplication.</p>
+      </div>
+      <div class="actions">
+        <button class="btn btn-primary" onclick="openModal('Problem #3 (Activity #3)', 'codeAct3P3', 'Screenshot 2026-08-22 215016.png', 'Screenshot 2026-08-22 215028.png')">View</button>
       </div>
     </div>
 
@@ -231,7 +236,7 @@
     <p class="profile-course">BSIT 2-3 / OOP Student</p>
   </footer>
 
-  <!-- Hidden Code Templates -->
+  <!-- Hidden Code Templates - Activity 2 -->
   <template id="codeP1">
 #Problem #1
 #Accept 10 Integers
@@ -311,148 +316,164 @@ for letter in sorted(counts.keys()):
     print(f"{letter}: {counts[letter]}")
   </template>
 
-  <template id="codeA3P1">
-#Read 5 numbers, put them in a list, and print the list
-#Change the 2nd element of the list (index 1)
-#Append 600 to the end
-#Insert 300 at the 3rd position (index 2)
-#Remove the 2nd to the last element (index -2)
-#Print the updated list
-numbers = []
-for i in range(5):
-    num = int(input(f"Enter integer no. {i + 1}: "))
-    numbers.append(num)
+  <!-- Hidden Code Templates - Activity 3 -->
+  <template id="codeAct3P1">
+#Problem #1
+#Tells your zodiac, chinese zodiac, traits and forecast
 
-print("\nOriginal List:", numbers)
-
-new_value = int(input("\nEnter a new value for the 2nd integer: "))
-numbers[1] = new_value
-numbers.append(600)
-numbers.insert(2, 300)
-del numbers[-2]
-
-print("\nUpdated List:", numbers)
-  </template>
-
-  <template id="codeA3P2">
 import tkinter as tk
-import math
+from tkinter import messagebox
+
+WESTERN_ZODIAC_DATA = [
+    [1, 20, "Capricorn", "Ambitious, organized, practical, patient."],
+    [2, 19, "Aquarius", "Innovative, independent, humanitarian, original."],
+    [3, 21, "Pisces", "Compassionate, artistic, intuitive, empathetic."],
+    [4, 20, "Aries", "Eager, dynamic, quick, competitive."],
+    [5, 21, "Taurus", "Strong, dependable, sensual, creative."],
+    [6, 21, "Gemini", "Versatile, expressive, curious, kind."],
+    [7, 23, "Cancer", "Intuitive, sentimental, compassionate, protective."],
+    [8, 23, "Leo", "Dramatic, outgoing, fiery, self-assured."],
+    [9, 23, "Virgo", "Practical, loyal, analytical, gentle."],
+    [10, 23, "Libra", "Diplomatic, artistic, intelligent, hospitable."],
+    [11, 22, "Scorpio", "Passionate, stubborn, resourceful, brave."],
+    [12, 22, "Sagittarius", "Extraverted, optimistic, funny, generous."],
+    [12, 31, "Capricorn", "Ambitious, organized, practical, patient."]
+]
+
+CHINESE_ANIMALS = ["Rat", "Ox", "Tiger", "Rabbit", "Dragon", "Snake", "Horse", "Goat", "Monkey", "Rooster", "Dog", "Pig"]
+CHINESE_FORECASTS = [
+    "A year of new networking opportunities and career growth.",
+    "Steady progress rewarded by consistent effort and discipline.",
+    "Bold moves will bring great returns; stay adaptable.",
+    "A peaceful year favoring self-care and emotional balance.",
+    "High energy brings strong leadership and breakthrough ideas.",
+    "Wisdom and strategy will turn challenges into victories.",
+    "Fast-paced changes bring excitement and fresh adventures.",
+    "Creativity flourishes; focus on personal growth and arts.",
+    "Sharp problem-solving opens doors to unexpected rewards.",
+    "Attention to detail pays off in your professional life.",
+    "Loyalty and honesty lead to strong, lasting partnerships.",
+    "Good fortune and contentment follow good choices."
+]
+
+def find_western_zodiac(month, day):
+    for item in WESTERN_ZODIAC_DATA:
+        cutoff_month = item[0]
+        cutoff_day = item[1]
+        
+        if month < cutoff_month or (month == cutoff_month and day <= cutoff_day):
+            return item[2], item[3]
+            
+    return "Capricorn", "Ambitious, organized, practical, patient."
+
+def find_chinese_zodiac(year):
+    target_index = (year - 4) % 12
+    
+    matched_animal = ""
+    matched_forecast = ""
+    
+    for idx in range(len(CHINESE_ANIMALS)):
+        if idx == target_index:
+            matched_animal = CHINESE_ANIMALS[idx]
+            matched_forecast = CHINESE_FORECASTS[idx]
+            break
+            
+    return matched_animal, matched_forecast
+
+def calculate_horoscope():
+    try:
+        mm = int(entry_month.get().strip())
+        dd = int(entry_day.get().strip())
+        yyyy = int(entry_year.get().strip())
+
+        if not (1 <= mm <= 12 and 1 <= dd <= 31 and yyyy > 0):
+            raise ValueError
+
+        w_sign, traits = find_western_zodiac(mm, dd)
+        c_sign, forecast = find_chinese_zodiac(yyyy)
+
+        lbl_w_sign_val.config(text=w_sign)
+        lbl_traits_val.config(text=traits)
+        lbl_c_sign_val.config(text=c_sign)
+        lbl_forecast_val.config(text=forecast)
+
+    except ValueError:
+        messagebox.showerror("Input Error", "Please enter valid numeric values for Month (1-12), Day (1-31), and Year.")
 
 root = tk.Tk()
-root.title("Python Calculator for OOP")
-root.geometry("310x420")
+root.title("Zodiac & Chinese Zodiac Finder")
+root.geometry("750x580")
 root.resizable(False, False)
 
-first_num = 0.0
-operator = ""
-is_typing_second_num = False
+lbl_title = tk.Label(root, text="Zodiac Finder", font=("Helvetica", 23, "bold"))
+lbl_title.pack(pady=15)
 
-def press_num(num):
-    global is_typing_second_num
-    if is_typing_second_num:
-        equation.set("")
-        is_typing_second_num = False
-        
-    current = equation.get()
-    equation.set(current + str(num))
+frame_input = tk.Frame(root)
+frame_input.pack(pady=5)
 
-def press_operator(op):
-    global first_num, operator, is_typing_second_num
-    try:
-        first_num = float(equation.get())
-        operator = op
-        is_typing_second_num = True
-    except ValueError:
-        equation.set("Error")
+tk.Label(frame_input, text="MM:", font=("Helvetica", 16)).grid(row=0, column=0, padx=2)
+entry_month = tk.Entry(frame_input, width=4, font=("Helvetica", 16))
+entry_month.grid(row=0, column=1, padx=8)
 
-def equal_press():
-    global first_num, operator
-    try:
-        second_num = float(equation.get())
-        result = 0.0
-        
-        if operator == "+":
-            result = first_num + second_num
-        elif operator == "-":
-            result = first_num - second_num
-        elif operator == "*":
-            result = first_num * second_num
-        elif operator == "/":
-            if second_num == 0:
-                equation.set("Error: Div by 0")
-                return
-            else:
-                result = first_num / second_num
-        else:
-            return
-            
-        if result.is_integer():
-            equation.set(int(result))
-        else:
-            equation.set(round(result, 4))
-            
-    except ValueError:
-        equation.set("Error")
+tk.Label(frame_input, text="DD:", font=("Helvetica", 16)).grid(row=0, column=2, padx=2)
+entry_day = tk.Entry(frame_input, width=4, font=("Helvetica", 16))
+entry_day.grid(row=0, column=3, padx=8)
 
-def clear():
-    global first_num, operator, is_typing_second_num
-    first_num = 0.0
-    operator = ""
-    is_typing_second_num = False
-    equation.set("")
+tk.Label(frame_input, text="YYYY:", font=("Helvetica", 16)).grid(row=0, column=4, padx=2)
+entry_year = tk.Entry(frame_input, width=6, font=("Helvetica", 16))
+entry_year.grid(row=0, column=5, padx=8)
 
-def square_root():
-    try:
-        val = float(equation.get())
-        if val < 0:
-            equation.set("Error: Negative √")
-        else:
-            res = math.sqrt(val)
-            equation.set(int(res) if res.is_integer() else round(res, 4))
-    except ValueError:
-        equation.set("Error")
+btn_calc = tk.Button(root, text="Calculate Zodiac", command=calculate_horoscope, bg="#4CAF50", fg="white", font=("Helvetica", 16, "bold"), padx=10, pady=5)
+btn_calc.pack(pady=15)
 
-def power_of_two():
-    try:
-        val = float(equation.get())
-        res = val ** 2
-        equation.set(int(res) if res.is_integer() else round(res, 4))
-    except ValueError:
-        equation.set("Error")
+frame_results = tk.LabelFrame(root, text=" Results ", font=("Helvetica", 17, "bold"), padx=15, pady=15)
+frame_results.pack(padx=30, pady=10, fill="both", expand=True)
 
-equation = tk.StringVar()
+tk.Label(frame_results, text="Zodiac Sign:", font=("Helvetica", 16, "bold")).grid(row=0, column=0, sticky="w", pady=6)
+lbl_w_sign_val = tk.Label(frame_results, text="-", font=("Helvetica", 16), fg="#1E88E5")
+lbl_w_sign_val.grid(row=0, column=1, sticky="w", pady=6, padx=10)
 
-entry_field = tk.Entry(root, font=('arial', 18, 'bold'), textvariable=equation, width=19, bg="#eee", bd=5, justify='right')
-entry_field.pack(ipady=10, pady=10)
+tk.Label(frame_results, text="Traits:", font=("Helvetica", 16, "bold")).grid(row=1, column=0, sticky="nw", pady=6)
+lbl_traits_val = tk.Label(frame_results, text="-", font=("Helvetica", 16), wraplength=480, justify="left")
+lbl_traits_val.grid(row=1, column=1, sticky="w", pady=6, padx=10)
 
-btns_frame = tk.Frame(root, bg="lightgray")
-btns_frame.pack()
+tk.Label(frame_results, text="Chinese Zodiac:", font=("Helvetica", 16, "bold")).grid(row=2, column=0, sticky="w", pady=6)
+lbl_c_sign_val = tk.Label(frame_results, text="-", font=("Helvetica", 16), fg="#D81B60")
+lbl_c_sign_val.grid(row=2, column=1, sticky="w", pady=6, padx=10)
 
-tk.Button(btns_frame, text="C", width=6, height=2, bg="#f05454", fg="white", command=clear).grid(row=0, column=0, padx=2, pady=2)
-tk.Button(btns_frame, text="√", width=6, height=2, bg="#30475e", fg="white", command=square_root).grid(row=0, column=1, padx=2, pady=2)
-tk.Button(btns_frame, text="x²", width=6, height=2, bg="#30475e", fg="white", command=power_of_two).grid(row=0, column=2, padx=2, pady=2)
-tk.Button(btns_frame, text="/", width=6, height=2, bg="#f2a365", command=lambda: press_operator("/")).grid(row=0, column=3, padx=2, pady=2)
-
-tk.Button(btns_frame, text="7", width=6, height=2, command=lambda: press_num(7)).grid(row=1, column=0, padx=2, pady=2)
-tk.Button(btns_frame, text="8", width=6, height=2, command=lambda: press_num(8)).grid(row=1, column=1, padx=2, pady=2)
-tk.Button(btns_frame, text="9", width=6, height=2, command=lambda: press_num(9)).grid(row=1, column=2, padx=2, pady=2)
-tk.Button(btns_frame, text="*", width=6, height=2, bg="#f2a365", command=lambda: press_operator("*")).grid(row=1, column=3, padx=2, pady=2)
-
-tk.Button(btns_frame, text="4", width=6, height=2, command=lambda: press_num(4)).grid(row=2, column=0, padx=2, pady=2)
-tk.Button(btns_frame, text="5", width=6, height=2, command=lambda: press_num(5)).grid(row=2, column=1, padx=2, pady=2)
-tk.Button(btns_frame, text="6", width=6, height=2, command=lambda: press_num(6)).grid(row=2, column=2, padx=2, pady=2)
-tk.Button(btns_frame, text="-", width=6, height=2, bg="#f2a365", command=lambda: press_operator("-")).grid(row=2, column=3, padx=2, pady=2)
-
-tk.Button(btns_frame, text="1", width=6, height=2, command=lambda: press_num(1)).grid(row=3, column=0, padx=2, pady=2)
-tk.Button(btns_frame, text="2", width=6, height=2, command=lambda: press_num(2)).grid(row=3, column=1, padx=2, pady=2)
-tk.Button(btns_frame, text="3", width=6, height=2, command=lambda: press_num(3)).grid(row=3, column=2, padx=2, pady=2)
-tk.Button(btns_frame, text="+", width=6, height=2, bg="#f2a365", command=lambda: press_operator("+")).grid(row=3, column=3, padx=2, pady=2)
-
-tk.Button(btns_frame, text="0", width=14, height=2, command=lambda: press_num(0)).grid(row=4, column=0, columnspan=2, padx=2, pady=2)
-tk.Button(btns_frame, text=".", width=6, height=2, command=lambda: press_num(".")).grid(row=4, column=2, padx=2, pady=2)
-tk.Button(btns_frame, text="=", width=6, height=2, bg="#228b22", fg="white", command=equal_press).grid(row=4, column=3, padx=2, pady=2)
+tk.Label(frame_results, text="Forecast:", font=("Helvetica", 16, "bold")).grid(row=3, column=0, sticky="nw", pady=6)
+lbl_forecast_val = tk.Label(frame_results, text="-", font=("Helvetica", 16), wraplength=480, justify="left")
+lbl_forecast_val.grid(row=3, column=1, sticky="w", pady=6, padx=10)
 
 root.mainloop()
+  </template>
+
+  <template id="codeAct3P2">
+#Problem #2
+#Descending numbers hehe
+
+n = int(input("Enter input: "))
+
+i = n
+while i > 0:
+    j = i
+    line = ""
+    while j > 0:
+        line += str(j)
+        j -= 1
+    print(line)
+    i -= 1
+  </template>
+
+  <template id="codeAct3P3">
+#Problem #3
+#The Asterisk Pyramid.
+layers = int(input("Enter input (layers): "))
+
+for i in range(1, layers + 1):
+    spaces = " " * (layers - i)
+    stars = "*" * (2 * i - 1)
+    print(spaces + stars)
   </template>
 
   <!-- Modal Display -->
@@ -489,19 +510,11 @@ root.mainloop()
           </div>
         </div>
       </div>
-
-      <!-- Download Banner inside Modal -->
-      <div class="attachment-box">
-        <div class="attachment-info">
-          📁 <strong>Source Code File:</strong> <span id="attachedFileName">script.py</span>
-        </div>
-        <a id="downloadLink" href="#" download class="btn-download">Download .py File</a>
-      </div>
     </div>
   </div>
 
   <script>
-    function openModal(title, templateId, codeImagePath, outputImagePath, fileName) {
+    function openModal(title, templateId, codeImagePath, outputImagePath) {
       document.getElementById('modalTitle').textContent = title;
       
       // Load Python code text
@@ -511,12 +524,6 @@ root.mainloop()
       // Load images
       document.getElementById('modalCodeImage').src = codeImagePath;
       document.getElementById('modalOutputImage').src = outputImagePath;
-      
-      // Update file download link inside modal
-      document.getElementById('attachedFileName').textContent = fileName;
-      const downloadBtn = document.getElementById('downloadLink');
-      downloadBtn.href = fileName;
-      downloadBtn.setAttribute('download', fileName);
       
       document.getElementById('codeModal').style.display = 'flex';
     }
